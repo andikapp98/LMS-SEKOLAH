@@ -1,0 +1,47 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Laravel
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+.env
+.env.backup
+.env.production
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+
+# IDE
+/.idea
+/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Testing
+.phpunit.result.cache
+/coverage
+
+# Logs
+*.log
+/storage/logs/*.log
+
+# Cache
+.php_cs
+.php_cs.cache
+.phpunit.cache
+
+# Build
+/public/css/app.css
+/public/js/app.js

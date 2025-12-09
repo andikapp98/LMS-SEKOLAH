@@ -1,0 +1,5 @@
+nis,nisn,nama,jenis_kelamin,tempat_lahir,tanggal_lahir,alamat,kelas,no_hp,email,nama_wali,no_hp_wali
+12345,0012345678,Ahmad Maulana,L,Jakarta,2005-01-15,Jl. Merdeka No. 10,10 TPM 1,081234567890,ahmad@example.com,Budi Santoso,081234567891
+12346,0012345679,Siti Nurhaliza,P,Bandung,2005-03-20,Jl. Sudirman No. 25,10 Teknik Pemesinan 2,081234567892,siti@example.com,Susi Susanti,081234567893
+12347,0012345680,Budi Setiawan,L,Surabaya,2005-02-10,Jl. Ahmad Yani No. 5,11 TKJ 1,081234567894,budi@example.com,Ahmad Setiawan,081234567895
+12348,0012345681,Rina Kartika,P,Medan,2005-04-25,Jl. Gatot Subroto 15,12 RPL 3,081234567896,rina@example.com,Kartika Dewi,081234567897
