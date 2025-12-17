@@ -61,12 +61,12 @@
             <!-- Sidebar -->
             <aside 
                 :class="[
-                    'fixed md:sticky top-0 left-0 z-40 h-screen transition-transform',
+                    'fixed top-16 md:top-20 left-0 z-40 h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] transition-transform',
                     sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
                 ]"
-                class="w-64 bg-white shadow-lg"
+                class="w-64 bg-white shadow-lg overflow-y-auto"
             >
-                <div class="h-full px-3 py-4 overflow-y-auto">
+                <div class="h-full px-3 py-4">
                     <!-- Close button (Mobile) -->
                     <button 
                         @click="sidebarOpen = false"
@@ -176,7 +176,7 @@
             ></div>
 
             <!-- Main Content -->
-            <div class="flex-1 min-w-0 overflow-hidden">
+            <div class="flex-1 min-w-0 overflow-hidden md:ml-64">
                 <!-- Page Heading -->
                 <header v-if="$slots.header" class="bg-white shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

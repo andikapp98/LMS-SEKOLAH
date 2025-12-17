@@ -27,11 +27,7 @@ class AssignmentController extends Controller
                 });
             }
         }
-        // Teachers: show only their assignments
-        else if ($user->teacher) {
-            $query->where('created_by', $user->id);
-        }
-        // Admin: show all
+        // Admin and Teachers: show all assignments
         
         $assignments = $query->orderBy('due_date', 'desc')->get();
 
