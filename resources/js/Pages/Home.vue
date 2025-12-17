@@ -25,7 +25,7 @@
                     <div class="flex items-center space-x-3">
                         <Link 
                             href="/login"
-                            class="px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-semibold text-white bg-gradient-to-r from-green-500 to-emerald-600 rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg shadow-green-200 hover:shadow-green-300 hover:scale-105"
+                            class="px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-semibold text-white bg-gradient-to-r from-green-800 to-emerald-900 rounded-full hover:from-green-900 hover:to-emerald-950 transition-all duration-300 shadow-lg shadow-green-400 hover:shadow-green-500 hover:scale-105"
                         >
                             Masuk
                         </Link>
@@ -45,14 +45,14 @@
                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                     <!-- Hero Content -->
                     <div class="text-center md:text-left order-2 md:order-1">
-                        <div class="inline-flex items-center bg-green-100 rounded-full px-4 py-2 mb-6">
-                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                            <span class="text-green-700 text-sm font-medium">Platform Pembelajaran Digital #1</span>
+                        <div class="inline-flex items-center bg-green-200 rounded-full px-4 py-2 mb-6">
+                            <span class="w-2 h-2 bg-green-800 rounded-full mr-2 animate-pulse"></span>
+                            <span class="text-green-900 text-sm font-medium">Platform Pembelajaran Digital #1</span>
                         </div>
                         
                         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 leading-tight mb-6">
                             Belajar Jadi Lebih
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-800 via-emerald-800 to-teal-800">
                                 Menyenangkan!
                             </span>
                         </h1>
@@ -65,7 +65,7 @@
                         <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                             <Link 
                                 href="/login"
-                                class="inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 rounded-full shadow-xl shadow-green-200 hover:shadow-green-300 hover:from-green-600 hover:to-emerald-700 transition-all duration-300 hover:scale-105"
+                                class="inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-bold text-white bg-gradient-to-r from-green-800 to-emerald-900 rounded-full shadow-xl shadow-green-400 hover:shadow-green-500 hover:from-green-900 hover:to-emerald-950 transition-all duration-300 hover:scale-105"
                             >
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
@@ -74,7 +74,7 @@
                             </Link>
                             <a 
                                 href="#fitur"
-                                class="inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-green-400 hover:text-green-600 transition-all duration-300"
+                                class="inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-semibold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-green-700 hover:text-green-800 transition-all duration-300"
                             >
                                 Pelajari Fitur
                             </a>
@@ -98,7 +98,7 @@
                                             <div class="text-gray-400 text-sm">Siswa Aktif</div>
                                         </div>
                                     </div>
-                                    <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Online</span>
+                                    <span class="px-3 py-1 bg-green-300 text-green-900 rounded-full text-sm font-medium">Online</span>
                                 </div>
 
                                 <!-- Stats Cards -->
@@ -141,7 +141,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
                                 </svg>
                             </div>
-                            <div class="absolute -bottom-2 -left-4 bg-green-400 rounded-2xl p-3 shadow-lg animate-bounce-slow animation-delay-1000">
+                            <div class="absolute -bottom-2 -left-4 bg-green-800 rounded-2xl p-3 shadow-lg animate-bounce-slow animation-delay-1000">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
@@ -161,7 +161,7 @@
                         <div class="text-gray-600 text-sm md:text-base">Guru Profesional</div>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-shadow">
-                        <div class="text-3xl md:text-4xl font-bold text-green-500 mb-2">100+</div>
+                        <div class="text-3xl md:text-4xl font-bold text-green-800 mb-2">100+</div>
                         <div class="text-gray-600 text-sm md:text-base">Materi Tersedia</div>
                     </div>
                     <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-shadow">
@@ -187,8 +187,8 @@
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     <!-- Feature 1 -->
-                    <div class="group bg-white rounded-3xl p-6 md:p-8 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200 group-hover:scale-110 transition-transform duration-300">
+                    <div class="group bg-white rounded-3xl p-6 md:p-8 border-2 border-gray-100 hover:border-green-500 hover:shadow-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-700 to-green-800 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-400 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                             </svg>
@@ -213,8 +213,8 @@
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="group bg-white rounded-3xl p-6 md:p-8 border-2 border-gray-100 hover:border-green-200 hover:shadow-xl transition-all duration-300">
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-200 group-hover:scale-110 transition-transform duration-300">
+                    <div class="group bg-white rounded-3xl p-6 md:p-8 border-2 border-gray-100 hover:border-green-500 hover:shadow-xl transition-all duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-700 to-green-800 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-400 group-hover:scale-110 transition-transform duration-300">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
                             </svg>
@@ -268,11 +268,11 @@
         </section>
 
         <!-- About Section -->
-        <section id="tentang" class="py-16 md:py-24 bg-gradient-to-br from-green-50 via-white to-emerald-50">
+        <section id="tentang" class="py-16 md:py-24 bg-gradient-to-br from-green-100 via-white to-emerald-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span class="inline-block px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-semibold mb-4">TENTANG KAMI</span>
+                        <span class="inline-block px-4 py-2 bg-green-300 text-green-900 rounded-full text-sm font-semibold mb-4">TENTANG KAMI</span>
                         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
                             Platform Pembelajaran Modern untuk Generasi Digital
                         </h2>
@@ -281,24 +281,24 @@
                         </p>
                         <ul class="space-y-4">
                             <li class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
                                 <span class="text-gray-700">Akses materi pembelajaran 24 jam sehari</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
                                 <span class="text-gray-700">Sistem penilaian otomatis dan transparan</span>
                             </li>
                             <li class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div class="w-6 h-6 bg-green-300 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
@@ -330,8 +330,8 @@
                                 </div>
                             </div>
                             <!-- Decorative -->
-                            <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-200 rounded-full opacity-50 blur-xl -z-10"></div>
-                            <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-200 rounded-full opacity-50 blur-xl -z-10"></div>
+                            <div class="absolute -top-4 -right-4 w-24 h-24 bg-green-400 rounded-full opacity-50 blur-xl -z-10"></div>
+                            <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-400 rounded-full opacity-50 blur-xl -z-10"></div>
                         </div>
                     </div>
                 </div>
@@ -339,7 +339,7 @@
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500">
+        <section class="py-16 md:py-24 bg-gradient-to-r from-green-800 via-emerald-800 to-teal-800">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
                     Siap Memulai Perjalanan Belajar?
@@ -349,7 +349,7 @@
                 </p>
                 <Link 
                     href="/login"
-                    class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-green-600 bg-white rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-green-900 bg-white rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
@@ -393,14 +393,14 @@
                         <h4 class="font-semibold mb-4">Kontak</h4>
                         <ul class="space-y-3 text-gray-400 text-sm">
                             <li class="flex items-start">
-                                <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                                 Gresik, Jawa Timur
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                                 info@smkyasmugresik.sch.id
