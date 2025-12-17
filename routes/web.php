@@ -105,4 +105,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/teachers/{teacher}/edit', [TeacherController::class, 'edit'])->name('teachers.edit');
     Route::put('/teachers/{teacher}', [TeacherController::class, 'update'])->name('teachers.update');
     Route::delete('/teachers/{teacher}', [TeacherController::class, 'destroy'])->name('teachers.destroy');
+    Route::post('/teachers/{teacher}/reset-password', [TeacherController::class, 'resetPassword'])->name('teachers.reset-password');
+    
+    // Student password reset
+    Route::post('/students/{student}/reset-password', [WebStudentController::class, 'resetPassword'])->name('students.reset-password');
 });

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\CourseController;

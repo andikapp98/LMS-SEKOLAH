@@ -3,12 +3,14 @@
 namespace App\Imports;
 
 use App\Models\Student;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\BeforeSheet;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class NominatifStudentsImport implements ToModel, WithStartRow, WithEvents
 {
@@ -114,6 +116,26 @@ class NominatifStudentsImport implements ToModel, WithStartRow, WithEvents
             );
 
             Log::info("Imported/Updated student: {$student->nama} ({$student->nis}) - Class: {$kelas}");
+            
+            // Create User account for the student
+            // Email format: nis@siswa.smkyasmu.sch.id
+            // Password default: NIS
+            $studentEmail = $nis . '@siswa.smkyasmu.sch.id';
+            $studentName = $row[3] ?? 'Siswa ' . $nis;
+            
+            $user = User::updateOrCreate(
+                ['email' => $studentEmail],
+                [
+                    'name' => $studentName,
+                    'password' => Hash::make($nis), // Default password = NIS
+                    'role' => 'student',
+                ]
+            );
+            
+            // Update student email to match user email
+            $student->update(['email' => $studentEmail]);
+            
+            Log::info("Created/Updated user account for student: {$studentName} (Email: {$studentEmail})");
             
             // Return null because we already saved using updateOrCreate
             return null;

@@ -3,9 +3,11 @@
 namespace App\Imports;
 
 use App\Models\Teacher;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class TeachersImport implements ToModel, WithStartRow
 {
@@ -133,6 +135,23 @@ class TeachersImport implements ToModel, WithStartRow
                     'status'              => !empty($row[10]) && strtolower(trim($row[10])) === 'aktif' ? 'aktif' : 'aktif',
                 ]);
                 Log::info("Created teacher: {$teacher->nama}" . ($teacher->kode_guru ? " (Kode: {$teacher->kode_guru})" : ""));
+            }
+            
+            // Create or update User account for the teacher
+            if ($email) {
+                $password = $kodeGuru ?? '123456'; // Default password: kode_guru or '123456'
+                
+                $user = User::updateOrCreate(
+                    ['email' => $email],
+                    [
+                        'name' => $nama,
+                        'password' => Hash::make($password),
+                        'role' => 'teacher',
+                        'teacher_id' => $teacher->id,
+                    ]
+                );
+                
+                Log::info("Created/Updated user account for teacher: {$nama} (Email: {$email})");
             }
             
             return null; // Already saved using updateOrCreate

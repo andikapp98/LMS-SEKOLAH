@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\User;
 use App\Imports\NominatifStudentsImport;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -246,6 +248,49 @@ class StudentController extends Controller
             return redirect()->route('students.index')->with('success', 'Semua data siswa berhasil dihapus');
         } catch (\Exception $e) {
             return back()->with('error', 'Gagal menghapus data: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Reset password for a student's user account
+     */
+    public function resetPassword(Student $student)
+    {
+        try {
+            if (!$student->nis) {
+                return back()->with('error', 'Siswa tidak memiliki NIS terdaftar.');
+            }
+
+            // Generate email from NIS
+            $studentEmail = $student->nis . '@siswa.smkyasmu.sch.id';
+
+            $user = User::where('email', $studentEmail)->first();
+            
+            if (!$user) {
+                // Create new user account if not exists
+                $user = User::create([
+                    'name' => $student->nama ?? 'Siswa ' . $student->nis,
+                    'email' => $studentEmail,
+                    'password' => Hash::make($student->nis),
+                    'role' => 'student',
+                ]);
+                
+                // Update student email
+                $student->update(['email' => $studentEmail]);
+                
+                return back()->with('success', "Akun baru dibuat untuk {$student->nama}. Email: {$studentEmail}, Password: {$student->nis}");
+            }
+
+            // Reset password to NIS
+            $user->update([
+                'password' => Hash::make($student->nis),
+            ]);
+
+            return back()->with('success', "Password untuk {$student->nama} berhasil direset. Email: {$studentEmail}, Password: {$student->nis}");
+            
+        } catch (\Exception $e) {
+            Log::error('Error resetting student password: ' . $e->getMessage());
+            return back()->with('error', 'Gagal mereset password: ' . $e->getMessage());
         }
     }
 }
