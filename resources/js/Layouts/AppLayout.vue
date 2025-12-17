@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen bg-gray-100 overflow-x-hidden">
         <!-- Navigation -->
-        <nav class="bg-gradient-to-r from-blue-600 to-blue-700 shadow-lg">
+        <nav class="bg-gradient-to-r from-green-600 to-green-700 shadow-lg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 md:h-20">
                     <div class="flex items-center space-x-4 md:space-x-8">
@@ -13,7 +13,7 @@
                             <!-- Hide text on mobile -->
                             <div class="hidden md:flex flex-col">
                                 <span class="text-xl font-bold text-white tracking-tight">SMKS YASMU GRESIK</span>
-                                <span class="text-xs text-blue-100 font-medium">Learning Management System</span>
+                                <span class="text-xs text-green-100 font-medium">Learning Management System</span>
                             </div>
                         </Link>
 
@@ -33,7 +33,7 @@
                         <!-- User info - icon only on mobile -->
                         <div class="flex items-center space-x-2 md:space-x-3 bg-white/10 backdrop-blur-sm rounded-lg px-2 py-1.5 md:px-4 md:py-2">
                             <div class="bg-white rounded-full p-1 md:p-1.5">
-                                <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                 </svg>
                             </div>
@@ -238,8 +238,8 @@ const isActive = (path) => {
     const isCurrentPath = currentPath === path || currentPath.startsWith(path + '/');
     
     return isCurrentPath 
-        ? 'bg-blue-50 text-blue-600 hover:bg-blue-100' 
-        : 'text-gray-700 hover:bg-gray-100 hover:text-blue-600';
+        ? 'bg-green-50 text-green-600 hover:bg-green-100' 
+        : 'text-gray-700 hover:bg-gray-100 hover:text-green-600';
 };
 
 // Watch for flash messages
