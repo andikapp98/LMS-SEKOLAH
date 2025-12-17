@@ -1,9 +1,9 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-6 sm:py-12 px-3 sm:px-4 md:px-6 lg:px-8">
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 py-6 sm:py-12 px-3 sm:px-4 md:px-6 lg:px-8">
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-            <div class="absolute top-40 left-40 w-80 h-80 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-40 left-40 w-80 h-80 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
         </div>
 
         <div class="max-w-md w-full relative z-10">
@@ -15,7 +15,7 @@
                     <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                         SMKS YASMU GRESIK
                     </h2>
-                    <p class="text-base sm:text-lg font-semibold text-indigo-600 mb-1">
+                    <p class="text-base sm:text-lg font-semibold text-green-600 mb-1">
                         Learning Management System
                     </p>
                     <p class="text-xs sm:text-sm text-gray-500">
@@ -41,7 +41,7 @@
                                     v-model="form.email"
                                     type="email"
                                     required
-                                    class="pl-9 sm:pl-10 appearance-none block w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
+                                    class="pl-9 sm:pl-10 appearance-none block w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
                                     placeholder="nama@email.com"
                                 />
                             </div>
@@ -68,7 +68,7 @@
                                     v-model="form.password"
                                     type="password"
                                     required
-                                    class="pl-9 sm:pl-10 appearance-none block w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
+                                    class="pl-9 sm:pl-10 appearance-none block w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -96,7 +96,7 @@
                         <button
                             type="submit"
                             :disabled="form.processing"
-                            class="group relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent text-sm sm:text-base font-semibold rounded-lg text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transform transition duration-150 ease-in-out hover:scale-105 active:scale-95 shadow-lg"
+                            class="group relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent text-sm sm:text-base font-semibold rounded-lg text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed transform transition duration-150 ease-in-out hover:scale-105 active:scale-95 shadow-lg shadow-green-200"
                         >
                             <span v-if="form.processing" class="flex items-center text-sm sm:text-base">
                                 <svg class="animate-spin -ml-1 mr-2 sm:mr-3 h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -117,7 +117,7 @@
 
                 <div class="mt-4 sm:mt-6 text-center">
                     <p class="text-xs text-gray-500">
-                        © 2024 SMKS YASMU GRESIK. All rights reserved.
+                        © 2025 SMKS YASMU GRESIK. All rights reserved.
                     </p>
                 </div>
             </div>

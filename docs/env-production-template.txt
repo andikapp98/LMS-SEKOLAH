@@ -1,0 +1,94 @@
+# ===========================================
+# 📄 TEMPLATE .ENV PRODUCTION
+# LMS SMKS YASMU GRESIK - Jagoan Hosting
+# ===========================================
+# Salin isi file ini ke .env di hosting Anda
+# ===========================================
+
+APP_NAME="LMS SMKS YASMU GRESIK"
+APP_ENV=production
+APP_KEY=base64:NwXZU5u0rBdT5UsEpbD9K52O6gqSArLgVwl0ZuyOnk4=
+APP_DEBUG=false
+APP_TIMEZONE=Asia/Jakarta
+APP_URL=https://lms.smkyasmu.sch.id
+
+APP_LOCALE=id
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=id_ID
+
+APP_MAINTENANCE_DRIVER=file
+
+BCRYPT_ROUNDS=12
+
+LOG_CHANNEL=daily
+LOG_STACK=single
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=error
+
+# ===========================================
+# Database MySQL Jagoan Hosting
+# ===========================================
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=smkyasm1_lms
+DB_USERNAME=smkyasm1_elearning
+DB_PASSWORD=@Wewe100473
+
+# ===========================================
+# Session - GUNAKAN FILE untuk shared hosting
+# ===========================================
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+SESSION_ENCRYPT=true
+SESSION_PATH=/
+SESSION_DOMAIN=null
+
+BROADCAST_CONNECTION=log
+FILESYSTEM_DISK=local
+
+# ===========================================
+# Queue & Cache - GUNAKAN SYNC/FILE untuk shared hosting
+# Jangan gunakan database karena akan memperlambat
+# ===========================================
+QUEUE_CONNECTION=sync
+CACHE_STORE=file
+
+MEMCACHED_HOST=127.0.0.1
+
+REDIS_CLIENT=phpredis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+# ===========================================
+# Mail Configuration
+# ===========================================
+MAIL_MAILER=log
+MAIL_SCHEME=null
+MAIL_HOST=127.0.0.1
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_FROM_ADDRESS="noreply@smkyasmu.sch.id"
+MAIL_FROM_NAME="${APP_NAME}"
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+AWS_USE_PATH_STYLE_ENDPOINT=false
+
+VITE_APP_NAME="${APP_NAME}"
+
+# ===========================================
+# ⚠️ PERUBAHAN PENTING DARI .ENV LOKAL:
+# ===========================================
+# 1. APP_ENV: local → production
+# 2. APP_DEBUG: true → false
+# 3. APP_URL: http → https
+# 4. LOG_LEVEL: debug → error
+# 5. SESSION_DRIVER: database → file
+# 6. CACHE_STORE: database → file
+# 7. QUEUE_CONNECTION: database → sync
+# ===========================================

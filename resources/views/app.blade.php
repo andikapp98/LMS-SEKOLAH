@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="/images/logo.png">
+        <link rel="apple-touch-icon" href="/images/logo.png">
+        <meta name="theme-color" content="#3B82F6">
+
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->

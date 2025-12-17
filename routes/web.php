@@ -9,11 +9,11 @@ use App\Http\Controllers\Web\CourseController;
 use App\Http\Controllers\Web\TeacherController;
 use App\Http\Controllers\Web\LearningMaterialController;
 use App\Http\Controllers\Web\QuizController;
+use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\StudentController;
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+// Home/Landing Page - Public
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

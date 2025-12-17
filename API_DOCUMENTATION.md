@@ -1,539 +1,449 @@
-# API Documentation
+# API Documentation - LMS Sekolah
 
-## Base URL
-```
-http://localhost:8000/api/v1
-```
+Base URL: `http://localhost:8000/api/v1`
 
 ## Authentication
-API menggunakan Laravel Sanctum untuk authentication. Setelah login, gunakan token yang diterima pada header `Authorization: Bearer {token}` untuk endpoint yang memerlukan authentication.
+
+Semua endpoint (kecuali login) memerlukan token Bearer authentication.
+
+```
+Authorization: Bearer {token}
+```
 
 ---
 
-## Endpoints
+## Auth Endpoints
 
-### 1. Login
-**POST** `/api/v1/auth/login`
-
-Login dan mendapatkan token authentication.
-
-**Request Body:**
+### Login
+```
+POST /auth/login
+```
+**Body:**
 ```json
 {
-  "email": "admin@test.com",
+  "email": "admin@smksyasmu.sch.id",
   "password": "password"
 }
 ```
-
-**Response Success (200):**
+**Response:**
 ```json
 {
   "success": true,
   "message": "Login berhasil",
   "data": {
-    "user": {
-      "id": 1,
-      "name": "Admin",
-      "email": "admin@test.com"
-    },
-    "token": "1|WfmMo5SuEhSdhx3dYToWnRfQaWkhgqKCxSIv2EZ625057ac0"
+    "user": { ... },
+    "token": "1|abc123..."
   }
 }
-```
-
-**Response Error (401):**
-```json
-{
-  "success": false,
-  "message": "Email atau password salah"
-}
-```
-
----
-
-### 2. Get User Info
-**GET** `/api/v1/auth/user`
-
-Mendapatkan informasi user yang sedang login.
-
-**Headers:**
-```
-Authorization: Bearer {token}
-Accept: application/json
-```
-
-**Response Success (200):**
-```json
-{
-  "success": true,
-  "data": {
-    "id": 1,
-    "name": "Admin",
-    "email": "admin@test.com",
-    "role": null,
-    "created_at": "2025-11-28T02:07:18.000000Z",
-    "updated_at": "2025-11-28T02:07:18.000000Z"
-  }
-}
-```
-
-**Response Error (401):**
-```json
-{
-  "message": "Unauthenticated."
-}
-```
-
----
-
-### 3. Logout
-**POST** `/api/v1/auth/logout`
-
-Logout dan menghapus token authentication saat ini.
-
-**Headers:**
-```
-Authorization: Bearer {token}
-Accept: application/json
-```
-
-**Response Success (200):**
-```json
-{
-  "success": true,
-  "message": "Logout berhasil"
-}
-```
-
----
-
-## Testing dengan cURL
-
-### Login
-```bash
-curl -X POST http://localhost:8000/api/v1/auth/login \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json" \
-  -d '{"email":"admin@test.com","password":"password"}'
-```
-
-### Get User (dengan token)
-```bash
-curl -X GET http://localhost:8000/api/v1/auth/user \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
 ### Logout
-```bash
-curl -X POST http://localhost:8000/api/v1/auth/logout \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+POST /auth/logout
 ```
 
-## Testing dengan PowerShell
-
-### Login
-```powershell
-$body = @{
-    email = "admin@test.com"
-    password = "password"
-} | ConvertTo-Json
-
-$response = Invoke-RestMethod -Uri "http://localhost:8000/api/v1/auth/login" `
-    -Method Post `
-    -Body $body `
-    -ContentType "application/json"
-
-$token = $response.data.token
+### Get Current User
 ```
-
-### Get User
-```powershell
-$headers = @{
-    "Authorization" = "Bearer $token"
-    "Accept" = "application/json"
-}
-
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/auth/user" `
-    -Method Get `
-    -Headers $headers
-```
-
-### Logout
-```powershell
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/auth/logout" `
-    -Method Post `
-    -Headers $headers
+GET /auth/user
 ```
 
 ---
 
-## Data Siswa (Students)
+## Dashboard
 
-### 4. Get All Students
-**GET** `/api/v1/students`
-
-Mendapatkan daftar semua siswa (dengan pagination).
-
-**Headers:**
+### Get Dashboard Stats
 ```
-Authorization: Bearer {token}
-Accept: application/json
+GET /dashboard
 ```
 
-**Response Success (200):**
-```json
-{
-  "current_page": 1,
-  "data": [
-    {
-      "id": 1,
-      "nis": "12345",
-      "nisn": "0012345678",
-      "nama": "John Doe",
-      "jenis_kelamin": "L",
-      "tempat_lahir": "Jakarta",
-      "tanggal_lahir": "2005-01-15",
-      "alamat": "Jl. Contoh No. 123",
-      "kelas": "XII IPA 1",
-      "no_hp": "081234567890",
-      "email": "john@example.com",
-      "nama_wali": "Jane Doe",
-      "no_hp_wali": "081234567891",
-      "created_at": "2025-11-28T05:30:00.000000Z",
-      "updated_at": "2025-11-28T05:30:00.000000Z"
-    }
-  ],
-  "per_page": 20,
-  "total": 1
-}
+### Get Quick Stats
+```
+GET /dashboard/quick-stats
 ```
 
 ---
 
-### 5. Create Student
-**POST** `/api/v1/students`
+## Students
 
-Menambah data siswa baru.
-
-**Headers:**
+### List Students
 ```
-Authorization: Bearer {token}
-Accept: application/json
-Content-Type: application/json
+GET /students
+GET /students?search=nama&jurusan=TPM&kelas=10
 ```
 
-**Request Body:**
+### Get Student
+```
+GET /students/{id}
+```
+
+### Create Student
+```
+POST /students
+```
+**Body:**
 ```json
 {
+  "nama": "Nama Siswa",
   "nis": "12345",
-  "nisn": "0012345678",
-  "nama": "John Doe",
-  "jenis_kelamin": "L",
-  "tempat_lahir": "Jakarta",
-  "tanggal_lahir": "2005-01-15",
-  "alamat": "Jl. Contoh No. 123",
-  "kelas": "XII IPA 1",
-  "no_hp": "081234567890",
-  "email": "john@example.com",
-  "nama_wali": "Jane Doe",
-  "no_hp_wali": "081234567891"
+  "kelas": "10 TPM 1",
+  "email": "siswa@email.com"
 }
 ```
 
-**Field Requirements:**
-- `nis` (required, unique)
-- `nisn` (optional, unique jika diisi)
-- `nama` (required)
-- `jenis_kelamin` (required, nilai: "L" atau "P")
-- `tempat_lahir` (optional)
-- `tanggal_lahir` (optional, format: YYYY-MM-DD)
-- `alamat` (optional)
-- `kelas` (optional)
-- `no_hp` (optional)
-- `email` (optional, unique jika diisi)
-- `nama_wali` (optional)
-- `no_hp_wali` (optional)
-
-**Response Success (201):**
-```json
-{
-  "success": true,
-  "message": "Data siswa berhasil ditambahkan",
-  "data": {
-    "id": 1,
-    "nis": "12345",
-    "nama": "John Doe",
-    ...
-  }
-}
+### Update Student
+```
+PUT /students/{id}
 ```
 
----
-
-### 6. Get Student by ID
-**GET** `/api/v1/students/{id}`
-
-Mendapatkan detail data siswa berdasarkan ID.
-
-**Headers:**
+### Delete Student
 ```
-Authorization: Bearer {token}
-Accept: application/json
+DELETE /students/{id}
 ```
 
-**Response Success (200):**
-```json
-{
-  "id": 1,
-  "nis": "12345",
-  "nisn": "0012345678",
-  "nama": "John Doe",
-  ...
-}
+### Import Students (Excel)
 ```
-
----
-
-### 7. Update Student
-**PUT** `/api/v1/students/{id}`
-
-Mengupdate data siswa.
-
-**Headers:**
-```
-Authorization: Bearer {token}
-Accept: application/json
-Content-Type: application/json
-```
-
-**Request Body:** (sama seperti Create Student)
-
-**Response Success (200):**
-```json
-{
-  "success": true,
-  "message": "Data siswa berhasil diperbarui",
-  "data": {
-    "id": 1,
-    "nis": "12345",
-    ...
-  }
-}
-```
-
----
-
-### 8. Delete Student
-**DELETE** `/api/v1/students/{id}`
-
-Menghapus data siswa.
-
-**Headers:**
-```
-Authorization: Bearer {token}
-Accept: application/json
-```
-
-**Response Success (200):**
-```json
-{
-  "success": true,
-  "message": "Data siswa berhasil dihapus"
-}
-```
-
----
-
-### 9. Import Students from Excel
-**POST** `/api/v1/students/import`
-
-Upload dan import data siswa dari file Excel/CSV.
-
-**Headers:**
-```
-Authorization: Bearer {token}
-Accept: application/json
+POST /students/import
 Content-Type: multipart/form-data
 ```
 
-**Request Body:**
+### Get Jurusan List
 ```
-file: [Excel/CSV file]
+GET /students/jurusan
 ```
 
-**Format Excel/CSV:**
-File Excel harus memiliki header row dengan kolom:
-- nis (required)
-- nisn (optional)
-- nama (required)
-- jenis_kelamin (required, L/P)
-- tempat_lahir (optional)
-- tanggal_lahir (optional, format: YYYY-MM-DD atau Excel date)
-- alamat (optional)
-- kelas (optional)
-- no_hp (optional)
-- email (optional)
-- nama_wali (optional)
-- no_hp_wali (optional)
+---
 
-**Response Success (200):**
+## Teachers
+
+### List Teachers
+```
+GET /teachers
+GET /teachers?search=nama
+```
+
+### Get Teacher Stats
+```
+GET /teachers/stats
+```
+
+### Get Teacher
+```
+GET /teachers/{id}
+```
+
+### Create Teacher
+```
+POST /teachers
+```
+
+### Update Teacher
+```
+PUT /teachers/{id}
+```
+
+### Delete Teacher
+```
+DELETE /teachers/{id}
+```
+
+---
+
+## Courses
+
+### List Courses
+```
+GET /courses
+GET /courses?search=nama
+```
+
+### Get Course Stats
+```
+GET /courses/stats
+```
+
+### Get Course
+```
+GET /courses/{id}
+```
+
+### Create Course
+```
+POST /courses
+```
+
+### Update Course
+```
+PUT /courses/{id}
+```
+
+### Delete Course
+```
+DELETE /courses/{id}
+```
+
+---
+
+## Assignments
+
+### List Assignments
+```
+GET /assignments
+GET /assignments?search=title&status=active
+```
+
+### Get Assignment Stats
+```
+GET /assignments/stats
+```
+
+### Get Assignment
+```
+GET /assignments/{id}
+```
+
+### Create Assignment
+```
+POST /assignments
+```
+**Body:**
 ```json
 {
-  "success": true,
-  "message": "Data siswa berhasil diimport dari Excel"
+  "title": "Judul Tugas",
+  "description": "Deskripsi tugas",
+  "course_id": 1,
+  "due_date": "2025-12-20",
+  "kelas": ["10 TPM 1", "10 TPM 2"],
+  "status": "active"
 }
 ```
 
-**Response Error (422) - Validation Error:**
+### Update Assignment
+```
+PUT /assignments/{id}
+```
+
+### Delete Assignment
+```
+DELETE /assignments/{id}
+```
+
+---
+
+## Quizzes
+
+### List Quizzes
+```
+GET /quizzes
+GET /quizzes?search=title&status=published
+```
+
+### Get Quiz Stats
+```
+GET /quizzes/stats
+```
+
+### Get Quiz
+```
+GET /quizzes/{id}
+```
+
+### Create Quiz
+```
+POST /quizzes
+```
+**Body:**
 ```json
 {
-  "success": false,
-  "message": "Terdapat kesalahan dalam data Excel",
-  "errors": [
+  "title": "Judul Kuis",
+  "description": "Deskripsi kuis",
+  "course_id": 1,
+  "duration": 60,
+  "max_attempts": 3,
+  "passing_score": 70,
+  "available_from": "2025-12-10 08:00:00",
+  "available_until": "2025-12-15 17:00:00",
+  "randomize_questions": true,
+  "show_correct_answers": false,
+  "kelas": ["10 TPM 1"],
+  "status": "published",
+  "questions": [
     {
-      "row": 2,
-      "attribute": "nis",
-      "errors": ["The nis has already been taken."],
-      "values": {
-        "nis": "12345",
-        "nama": "John Doe"
-      }
+      "question": "Apa ibukota Indonesia?",
+      "type": "multiple_choice",
+      "options": ["Jakarta", "Surabaya", "Bandung", "Medan"],
+      "correct_answer": "Jakarta",
+      "points": 10
+    },
+    {
+      "question": "Indonesia adalah negara kepulauan",
+      "type": "true_false",
+      "options": ["Benar", "Salah"],
+      "correct_answer": "Benar",
+      "points": 5
     }
   ]
 }
 ```
 
----
-
-### 10. Download Excel Template
-**GET** `/api/v1/students/template/download`
-
-Download template Excel untuk import siswa.
-
-**Headers:**
+### Update Quiz
 ```
-Authorization: Bearer {token}
-Accept: application/json
+PUT /quizzes/{id}
 ```
 
+### Delete Quiz
+```
+DELETE /quizzes/{id}
+```
+
+### Start Quiz (Take)
+```
+POST /quizzes/{id}/take
+```
 **Response:**
-File CSV dengan header kolom yang sesuai untuk import.
-
----
-
-## Testing dengan cURL - Students
-
-### Get All Students
-```bash
-curl -X GET http://localhost:8000/api/v1/students \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE"
-```
-
-### Create Student
-```bash
-curl -X POST http://localhost:8000/api/v1/students \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "nis": "12345",
-    "nisn": "0012345678",
-    "nama": "John Doe",
-    "jenis_kelamin": "L",
-    "tempat_lahir": "Jakarta",
-    "tanggal_lahir": "2005-01-15",
-    "kelas": "XII IPA 1"
-  }'
-```
-
-### Import Excel
-```bash
-curl -X POST http://localhost:8000/api/v1/students/import \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
-  -F "file=@/path/to/students.xlsx"
-```
-
-### Download Template
-```bash
-curl -X GET http://localhost:8000/api/v1/students/template/download \
-  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
-  -o template_siswa.csv
-```
-
-## Testing dengan PowerShell - Students
-
-### Get All Students
-```powershell
-$headers = @{
-    "Authorization" = "Bearer $token"
-    "Accept" = "application/json"
+```json
+{
+  "success": true,
+  "data": {
+    "attempt_id": 1,
+    "quiz": { ... },
+    "questions": [ ... ],
+    "started_at": "2025-12-10T08:00:00"
+  }
 }
-
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/students" `
-    -Method Get `
-    -Headers $headers
 ```
 
-### Create Student
-```powershell
-$body = @{
-    nis = "12345"
-    nisn = "0012345678"
-    nama = "John Doe"
-    jenis_kelamin = "L"
-    tempat_lahir = "Jakarta"
-    tanggal_lahir = "2005-01-15"
-    kelas = "XII IPA 1"
-} | ConvertTo-Json
-
-Invoke-RestMethod -Uri "http://localhost:8000/api/v1/students" `
-    -Method Post `
-    -Body $body `
-    -Headers $headers `
-    -ContentType "application/json"
+### Submit Quiz
 ```
-
-### Import Excel
-```powershell
-$filePath = "C:\path\to\students.xlsx"
-$uri = "http://localhost:8000/api/v1/students/import"
-
-$headers = @{
-    "Authorization" = "Bearer $token"
+POST /quizzes/{id}/submit
+```
+**Body:**
+```json
+{
+  "attempt_id": 1,
+  "answers": {
+    "1": "Jakarta",
+    "2": "Benar"
+  }
 }
-
-Add-Type -AssemblyName System.Net.Http
-$client = New-Object System.Net.Http.HttpClient
-$client.DefaultRequestHeaders.Authorization = New-Object System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", $token)
-
-$content = New-Object System.Net.Http.MultipartFormDataContent
-$fileStream = [System.IO.File]::OpenRead($filePath)
-$fileContent = New-Object System.Net.Http.StreamContent($fileStream)
-$content.Add($fileContent, "file", [System.IO.Path]::GetFileName($filePath))
-
-$response = $client.PostAsync($uri, $content).Result
-$result = $response.Content.ReadAsStringAsync().Result
-$result | ConvertFrom-Json
 ```
-
-### Download Template
-```powershell
-Invoke-WebRequest -Uri "http://localhost:8000/api/v1/students/template/download" `
-    -Headers $headers `
-    -OutFile "template_siswa.csv"
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "score": 85,
+    "passed": true,
+    "passing_score": 70,
+    "total_questions": 10
+  }
+}
 ```
 
 ---
 
-## Error Codes
+## Learning Materials
+
+### List Materials
+```
+GET /materials
+GET /materials?search=title&type=document&course_id=1
+```
+
+### Get Material Stats
+```
+GET /materials/stats
+```
+
+### Get Material
+```
+GET /materials/{id}
+```
+
+### Create Material
+```
+POST /materials
+Content-Type: multipart/form-data
+```
+**Fields:**
+- `title` (required): Judul materi
+- `description`: Deskripsi
+- `course_id` (required): ID mata pelajaran
+- `type` (required): document, video, link
+- `kelas`: Array kelas target
+- `file`: File untuk type document
+- `url`: URL untuk type video/link
+
+### Update Material
+```
+PUT /materials/{id}
+```
+
+### Delete Material
+```
+DELETE /materials/{id}
+```
+
+### Download Material
+```
+GET /materials/{id}/download
+```
+
+---
+
+## Response Format
+
+### Success Response
+```json
+{
+  "success": true,
+  "message": "Operation successful",
+  "data": { ... }
+}
+```
+
+### Error Response
+```json
+{
+  "success": false,
+  "message": "Error message",
+  "errors": { ... }
+}
+```
+
+### Paginated Response
+```json
+{
+  "success": true,
+  "data": {
+    "current_page": 1,
+    "data": [ ... ],
+    "per_page": 15,
+    "total": 100,
+    "last_page": 7
+  }
+}
+```
+
+---
+
+## HTTP Status Codes
 
 | Code | Description |
 |------|-------------|
-| 200  | Success |
-| 401  | Unauthorized (token invalid/expired atau kredensial salah) |
-| 422  | Validation Error |
-| 500  | Server Error |
+| 200 | OK - Request successful |
+| 201 | Created - Resource created |
+| 400 | Bad Request - Invalid input |
+| 401 | Unauthorized - Authentication required |
+| 403 | Forbidden - Access denied |
+| 404 | Not Found - Resource not found |
+| 422 | Unprocessable Entity - Validation error |
+| 500 | Internal Server Error |
+
+---
+
+## Notes
+
+- Semua tanggal menggunakan format ISO 8601 (`YYYY-MM-DD HH:mm:ss`)
+- Timezone: `Asia/Jakarta` (WIB)
+- Upload file max: 20MB untuk materi, 10MB untuk tugas
+- Token Sanctum expires setelah logout

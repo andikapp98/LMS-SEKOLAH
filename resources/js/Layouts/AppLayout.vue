@@ -201,6 +201,16 @@
                         </div>
                     </div>
                 </main>
+
+                <!-- Footer -->
+                <footer class="bg-white border-t border-gray-200 py-4 mt-auto">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                            <p>© 2025 SMKS Yasmu Gresik. All rights reserved.</p>
+                            <p class="mt-2 md:mt-0">Learning Management System v1.2.0</p>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
     </div>

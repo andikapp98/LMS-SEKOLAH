@@ -7,6 +7,9 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Api\TeacherController;
 use App\Http\Controllers\Api\CourseController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\AssignmentController;
+use App\Http\Controllers\Api\QuizController;
+use App\Http\Controllers\Api\LearningMaterialController;
 
 Route::prefix('v1')->group(function () {
     // Authentication routes
@@ -72,6 +75,39 @@ Route::prefix('v1')->group(function () {
             Route::get('/{id}', [CourseController::class, 'show']);
             Route::put('/{id}', [CourseController::class, 'update']);
             Route::delete('/{id}', [CourseController::class, 'destroy']);
+        });
+
+        // Assignments
+        Route::prefix('assignments')->group(function () {
+            Route::get('/stats', [AssignmentController::class, 'stats']);
+            Route::get('/', [AssignmentController::class, 'index']);
+            Route::post('/', [AssignmentController::class, 'store']);
+            Route::get('/{id}', [AssignmentController::class, 'show']);
+            Route::put('/{id}', [AssignmentController::class, 'update']);
+            Route::delete('/{id}', [AssignmentController::class, 'destroy']);
+        });
+
+        // Quizzes
+        Route::prefix('quizzes')->group(function () {
+            Route::get('/stats', [QuizController::class, 'stats']);
+            Route::get('/', [QuizController::class, 'index']);
+            Route::post('/', [QuizController::class, 'store']);
+            Route::get('/{id}', [QuizController::class, 'show']);
+            Route::put('/{id}', [QuizController::class, 'update']);
+            Route::delete('/{id}', [QuizController::class, 'destroy']);
+            Route::post('/{id}/take', [QuizController::class, 'take']);
+            Route::post('/{id}/submit', [QuizController::class, 'submit']);
+        });
+
+        // Learning Materials
+        Route::prefix('materials')->group(function () {
+            Route::get('/stats', [LearningMaterialController::class, 'stats']);
+            Route::get('/', [LearningMaterialController::class, 'index']);
+            Route::post('/', [LearningMaterialController::class, 'store']);
+            Route::get('/{id}', [LearningMaterialController::class, 'show']);
+            Route::put('/{id}', [LearningMaterialController::class, 'update']);
+            Route::delete('/{id}', [LearningMaterialController::class, 'destroy']);
+            Route::get('/{id}/download', [LearningMaterialController::class, 'download']);
         });
     });
 });
